@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AquaShop - Sklep z rybami</title>
+<meta name="description" content="Sklep z rybami akwariowymi">
+
+<link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header>
+<nav class="nav" aria-label="Nawigacja główna">
+
+    <div class="logo">🐟 AquaShop</div>
+
+    <button class="hamburger" aria-label="Menu">☰</button>
+
+    <ul class="nav-menu">
+        <button class="cart-icon" aria-label="Koszyk">
+    🛒 <span class="cart-text">Koszyk</span>
+        <span class="cart-count">0</span>
+        </button>
+        <div class="cart-panel">
+            <h2>Koszyk</h2>
+
+            <ul class="cart-items"></ul>
+
+            <p class="empty">Koszyk jest pusty</p>
+
+            <p class="total">Suma: 0 zł</p>
+
+            <button class="clear-cart">Wyczyść</button>
+            <button class="checkout">Kup</button>
+        </div>
+        <li><a href="#home">Start</a></li>
+        <li><a href="#oferta">Oferta</a></li>
+        <li><a href="#dlaczego">Dlaczego my</a></li>
+        <li><a href="#opinie">Opinie</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+
+</nav>
+</header>
+
+<main>
+
+<section id="home" class="hero">
+    <h1>Najlepsze ryby do Twojego akwarium</h1>
+    <p>Zdrowe i egzotyczne gatunki</p>
+    <a href="#oferta" class="btn">Zobacz ofertę</a>
+</section>
+
+<section id="oferta">
+    <h2>Oferta</h2>
+
+    <div class="grid-3">
+
+        <article class="card">
+            <img src="images/gupik.webp" alt="Kolorowy gupik" loading="lazy">
+            <h3>Gupik</h3>
+            <p>Piękna ryba ławicowa</p>
+            <p class="price">6</p>
+            <button class="add-to-cart">Kup</button>
+        </article>
+
+        <article class="card">
+            <img src="images/neon.webp" alt="Neon innesa" loading="lazy">
+            <h3>Neon</h3>
+            <p>Mała ryba stadna</p>
+            <p class="price">4</p>
+            <button class="add-to-cart">Kup</button>
+        </article>
+
+        <article class="card">
+            <img src="images/skalar.webp" alt="Skalar" loading="lazy">
+            <h3>Skalar</h3>
+            <p>Ryba ławicowa</p>
+            <p class="price">30</p>
+            <button class="add-to-cart">Kup</button>
+        </article>
+
+        <article class="card">
+            <img src="images/bojowniki.webp" alt="Bojowniki" loading="lazy">
+            <h3>Bojowniki - różne wariancje</h3>
+            <p>Elegancka ryba</p>
+            <p class="price">60</p>
+            <button class="add-to-cart">Kup</button>
+        </article>
+        
+        <article class="card">
+            <img src="images/danio.webp" alt="Danio" loading="lazy">
+            <h3>Danio pręgowany</h3>
+            <p>Piękna ryba - wypełnia górne poziomy akwarium</p>
+            <p class="price">7</p>
+            <button class="add-to-cart">Kup</button>
+
+        </article><article class="card">
+            <img src="images/glonojad.webp" alt="Glonojad" loading="lazy">
+            <h3>Zbrojnik L519</h3>
+            <p>Przyjazny glonojad</p>
+            <p class="price">50</p>
+            <button class="add-to-cart">Kup</button>
+        </article>
+
+        <article class="card">
+            <img src="images/razbora.webp" alt="Razbora" loading="lazy">
+            <h3>Razbora</h3>
+            <p>Przyjazna ryba ławicowa</p>
+            <p class="price">8</p>
+            <button class="add-to-cart">Kup</button>
+        </article>
+
+        <article class="card">
+            <img src="images/kirys.webp" alt="Kirysek" loading="lazy">
+            <h3>Kirysek</h3>
+            <p>Ryba denna - sanitariusz akwarium</p>
+            <p class="price">10</p>
+            <button class="add-to-cart">Kup</button>
+        </article>
+
+        <article class="card">
+            <img src="images/krewetka.webp" alt="Krewetka" loading="lazy">
+            <h3>Krewetka</h3>
+            <p>Drobny skorupiak dbający o czystość</p>
+            <p class="price">8</p>
+            <button class="add-to-cart">Kup</button>
+        </article>
+
+    </div>
+</section>
+
+<section id="dlaczego">
+    <h2>Dlaczego my?</h2>
+    <br>
+    <div class="features">
+    <div class="feature-card">
+        <div class="icon">🐟</div>
+        <h3>Zdrowe ryby</h3>
+        <p>Dbamy o najwyższą jakość i kondycję ryb</p>
+    </div>
+
+    <div class="feature-card">
+        <div class="icon">🚚</div>
+        <h3>Szybka dostawa</h3>
+        <p>Dostarczamy w bezpiecznych warunkach</p>
+    </div>
+
+    <div class="feature-card">
+        <div class="icon">💬</div>
+        <h3>Pomoc ekspertów</h3>
+        <p>Chętnie doradzimy w wyborze</p>
+    </div>
+</div>
+</section>
+
+<section id="opinie">
+    <h2>Opinie</h2>
+    <div class="slider">
+    <div class="opinia active">
+        <p>"Super sklep!"</p>
+        <span>– Jan</span>
+    </div>
+
+    <div class="opinia">
+        <p>"Ryby przyszły zdrowe"</p>
+        <span>– Anna</span>
+    </div>
+
+    <div class="opinia">
+        <p>"Polecam!"</p>
+        <span>– Michał</span>
+    </div>
+</div>
+</section>
+
+<section id="kontakt">
+    <h2>Kontakt</h2>
+
+    <form>
+        <label for="name">Imię</label>
+        <input id="name" type="text" required>
+
+        <label for="email">Email</label>
+        <input id="email" type="email" required>
+        <br>
+        <br>
+        <label for="msg">Wiadomość</label>
+        <textarea id="msg" required></textarea>
+
+        <button type="submit">Wyślij</button>
+    </form>
+</section>
+
+</main>
+<div id="toast"></div>
+<footer>
+<p>© 2026 AquaShop</p>
+</footer>
+
+<script src="js/script.js" defer></script>
+
+</body>
+</html>
