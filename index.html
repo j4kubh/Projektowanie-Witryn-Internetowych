@@ -20,23 +20,12 @@
 
     <button class="hamburger" aria-label="Menu">☰</button>
 
-    <ul class="nav-menu">
-        <button class="cart-icon" aria-label="Koszyk">
-    🛒 <span class="cart-text">Koszyk</span>
+    <div class="cart-icon" aria-label="Koszyk">
+        🛒 <span class="cart-text">Koszyk</span>
         <span class="cart-count">0</span>
-        </button>
-        <div class="cart-panel">
-            <h2>Koszyk</h2>
+    </div>
 
-            <ul class="cart-items"></ul>
-
-            <p class="empty">Koszyk jest pusty</p>
-
-            <p class="total">Suma: 0 zł</p>
-
-            <button class="clear-cart">Wyczyść</button>
-            <button class="checkout">Kup</button>
-        </div>
+    <ul class="nav-menu">
         <li><a href="#home">Start</a></li>
         <li><a href="#oferta">Oferta</a></li>
         <li><a href="#dlaczego">Dlaczego my</a></li>
@@ -45,6 +34,19 @@
     </ul>
 
 </nav>
+
+<div class="cart-panel">
+    <h2>Koszyk</h2>
+
+    <ul class="cart-items"></ul>
+
+    <p class="empty">Koszyk jest pusty</p>
+
+    <p class="total">Suma: 0 zł</p>
+
+    <button class="clear-cart">Wyczyść</button>
+    <button class="checkout">Kup</button>
+</div>
 </header>
 
 <main>
@@ -56,82 +58,13 @@
 </section>
 
 <section id="oferta">
+
     <h2>Oferta</h2>
 
-    <div class="grid-3">
-
-        <article class="card">
-            <img src="images/gupik.webp" alt="Kolorowy gupik" loading="lazy">
-            <h3>Gupik</h3>
-            <p>Piękna ryba ławicowa</p>
-            <p class="price">6</p>
-            <button class="add-to-cart">Kup</button>
-        </article>
-
-        <article class="card">
-            <img src="images/neon.webp" alt="Neon innesa" loading="lazy">
-            <h3>Neon</h3>
-            <p>Mała ryba stadna</p>
-            <p class="price">4</p>
-            <button class="add-to-cart">Kup</button>
-        </article>
-
-        <article class="card">
-            <img src="images/skalar.webp" alt="Skalar" loading="lazy">
-            <h3>Skalar</h3>
-            <p>Ryba ławicowa</p>
-            <p class="price">30</p>
-            <button class="add-to-cart">Kup</button>
-        </article>
-
-        <article class="card">
-            <img src="images/bojowniki.webp" alt="Bojowniki" loading="lazy">
-            <h3>Bojowniki - różne wariancje</h3>
-            <p>Elegancka ryba</p>
-            <p class="price">60</p>
-            <button class="add-to-cart">Kup</button>
-        </article>
-        
-        <article class="card">
-            <img src="images/danio.webp" alt="Danio" loading="lazy">
-            <h3>Danio pręgowany</h3>
-            <p>Piękna ryba - wypełnia górne poziomy akwarium</p>
-            <p class="price">7</p>
-            <button class="add-to-cart">Kup</button>
-
-        </article><article class="card">
-            <img src="images/glonojad.webp" alt="Glonojad" loading="lazy">
-            <h3>Zbrojnik L519</h3>
-            <p>Przyjazny glonojad</p>
-            <p class="price">50</p>
-            <button class="add-to-cart">Kup</button>
-        </article>
-
-        <article class="card">
-            <img src="images/razbora.webp" alt="Razbora" loading="lazy">
-            <h3>Razbora</h3>
-            <p>Przyjazna ryba ławicowa</p>
-            <p class="price">8</p>
-            <button class="add-to-cart">Kup</button>
-        </article>
-
-        <article class="card">
-            <img src="images/kirys.webp" alt="Kirysek" loading="lazy">
-            <h3>Kirysek</h3>
-            <p>Ryba denna - sanitariusz akwarium</p>
-            <p class="price">10</p>
-            <button class="add-to-cart">Kup</button>
-        </article>
-
-        <article class="card">
-            <img src="images/krewetka.webp" alt="Krewetka" loading="lazy">
-            <h3>Krewetka</h3>
-            <p>Drobny skorupiak dbający o czystość</p>
-            <p class="price">8</p>
-            <button class="add-to-cart">Kup</button>
-        </article>
+    <div class="grid-3" id="fish-container">
 
     </div>
+
 </section>
 
 <section id="dlaczego">

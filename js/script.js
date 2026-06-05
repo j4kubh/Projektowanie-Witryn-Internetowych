@@ -26,43 +26,57 @@ setInterval(() => {
 }, 3000);
 
 /* KOSZYK */
+/* ELEMENTY KOSZYKA */
 
-const buttons = document.querySelectorAll('.add-to-cart');
+const cartIcon = document.querySelector('.cart-icon');
+const cartPanel = document.querySelector('.cart-panel');
 const cartItemsList = document.querySelector('.cart-items');
 const cartCount = document.querySelector('.cart-count');
-const cartPanel = document.querySelector('.cart-panel');
-const cartIcon = document.querySelector('.cart-icon');
 const clearBtn = document.querySelector('.clear-cart');
+const checkoutBtn = document.querySelector('.checkout');
 const emptyText = document.querySelector('.empty');
 const totalText = document.querySelector('.total');
-const checkoutBtn = document.querySelector('.checkout');
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+document.addEventListener("click",(e)=>{
+
+    if(!e.target.classList.contains("add-to-cart"))
+        return;
+
+    const card = e.target.closest(".card");
+
+    const name =
+        card.querySelector("h3").innerText;
+
+    const price =
+        Number(card.querySelector(".price")
+        .innerText.replace(" zł",""));
+
+    const existing =
+        cart.find(item => item.name === name);
+
+    if(existing){
+        existing.qty++;
+    }
+    else{
+        cart.push({
+            name,
+            price,
+            qty:1
+        });
+    }
+
+    saveCart();
+
+});
 
 /* Otwieranie koszyka */
 cartIcon.addEventListener('click', () => {
     cartPanel.classList.toggle('open');
 });
 
-/* Dodawanie produktu */
-buttons.forEach(btn => {
-    btn.addEventListener('click', () => {
 
-        const card = btn.closest('.card');
-        const name = card.querySelector('h3').innerText;
-        const price = Number(card.querySelector('.price').innerText);
-
-        const existing = cart.find(item => item.name === name);
-
-        if (existing) {
-            existing.qty++;
-        } else {
-            cart.push({ name, price, qty: 1 });
-        }
-
-        saveCart();
-    });
-});
 
 /* Zapis */
 function saveCart() {
@@ -152,3 +166,46 @@ function showToast(message, type = "success") {
         toast.classList.remove("show");
     }, 3000);
 }
+async function loadFish() {
+
+    const response = await fetch('/api/fish');
+
+    const fish = await response.json();
+
+    const container =
+        document.getElementById("fish-container");
+
+    container.innerHTML = "";
+
+    fish.forEach(item => {
+
+        container.innerHTML += `
+
+        <article class="card">
+
+            <img
+                src="images/${item.image}"
+                alt="${item.name}"
+                loading="lazy">
+
+            <h3>${item.name}</h3>
+
+            <p>${item.description}</p>
+
+            <p class="price">
+                ${item.price} zł
+            </p>
+
+            <button class="add-to-cart">
+                Kup
+            </button>
+
+        </article>
+
+        `;
+
+    });
+
+}
+
+loadFish();

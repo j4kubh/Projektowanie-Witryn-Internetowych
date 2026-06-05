@@ -1,129 +1,277 @@
-# 🐟 AquaShop – Strona sklepu akwarystycznego
+# 🐟 AquaShop – Sklep internetowy z rybami akwariowymi
 
-## Opis projektu
+## 📌 Opis projektu
 
-AquaShop to responsywna strona internetowa typu one-page przedstawiająca ofertę sklepu z rybami akwariowymi. Projekt został wykonany w ramach przedmiotu „Projektowanie witryn internetowych”.
-Strona umożliwia przeglądanie produktów, dodawanie ich do koszyka oraz symulację procesu zakupu.
+**AquaShop** to responsywna aplikacja webowa typu **one-page**, prezentująca ofertę sklepu z rybami akwariowymi. Projekt został wykonany w ramach przedmiotu **„Projektowanie witryn internetowych”** i rozszerzony o warstwę backendową.
 
+Aplikacja umożliwia dynamiczne pobieranie produktów z bazy danych, ich wyświetlanie na stronie oraz symulację procesu zakupowego.
 
-## Cel projektu
+---
 
-Celem projektu było:
+## 🎯 Cel projektu
 
-* zaprojektowanie nowoczesnej strony internetowej,
-* stworzenie czytelnej i semantycznej struktury HTML,
-* przygotowanie responsywnego interfejsu użytkownika,
+Główne cele projektu:
+
+* zaprojektowanie nowoczesnej strony internetowej typu e-commerce,
+* stworzenie semantycznej i czytelnej struktury HTML,
+* przygotowanie responsywnego interfejsu użytkownika (RWD),
 * implementacja interakcji w JavaScript,
-* przygotowanie projektu pod przyszłą integrację z backendem.
+* integracja warstwy frontendowej z backendem,
+* wykorzystanie bazy danych SQLite,
+* przygotowanie projektu pod dalszą rozbudowę.
 
+---
 
-## Funkcjonalności
+## ⚙️ Funkcjonalności
 
-* Responsywność (RWD – mobile, tablet, desktop)
-* Menu hamburger na urządzeniach mobilnych
-* Koszyk zakupów:
+### Frontend
 
-  * dodawanie produktów
-  * usuwanie produktów
-  * liczenie sumy
-  * zapis w localStorage
-* Symulacja zakupu (przycisk „Kup”)
-* Powiadomienia typu toast (zamiast alertów)
-* Slider opinii
+* Responsywny interfejs (mobile, tablet, desktop)
+* Menu typu hamburger
+* Smooth Scroll (nawigacja One Page)
+* Slider opinii klientów
 * Formularz kontaktowy
-* Smooth scroll między sekcjami
+* System powiadomień (Toast Notifications)
+* Koszyk zakupowy:
 
+  * dodawanie produktów,
+  * usuwanie produktów,
+  * zliczanie ilości produktów,
+  * obliczanie wartości zamówienia,
+  * zapis danych w Local Storage.
 
-## Technologie
+### Backend
 
-* HTML5 (semantyczne znaczniki)
-* CSS3 (Flexbox, Grid, animacje, media queries)
-* JavaScript (DOM, localStorage)
+* Serwer Node.js z wykorzystaniem Express.js
+* Baza danych SQLite
+* Automatyczne tworzenie tabel i danych startowych
+* REST API
 
+#### Endpoint
 
-## Struktura projektu
+```http
+GET /api/fish
+```
+
+Zwraca listę dostępnych produktów w formacie JSON.
+
+---
+
+## 🔄 Integracja Frontend–Backend
+
+* Frontend pobiera dane z API za pomocą `fetch()`
+* Produkty generowane są dynamicznie na stronie
+* Brak statycznie zapisanych produktów w kodzie HTML
+
+---
+
+## 🧰 Technologie
+
+### Frontend
+
+* HTML5
+* CSS3
+
+  * Flexbox
+  * CSS Grid
+  * Media Queries
+  * CSS Variables
+* JavaScript
+
+  * DOM API
+  * Fetch API
+  * Local Storage
+
+### Backend
+
+* Node.js
+* Express.js
+* SQLite3
+* CORS
+
+---
+
+## 📁 Struktura projektu
 
 ```
-/projekt
+AQUASHOP/
 │
-├── index.html
 ├── css/
 │   ├── style.css
 │   └── variables.css
+│
+├── images/
+│   ├── bojownik.webp
+│   ├── danio.webp
+│   ├── glonojad.webp
+│   ├── gupik.webp
+│   ├── kirys.webp
+│   ├── krewetka.webp
+│   ├── molinezja.webp
+│   ├── neon.webp
+│   ├── razbora.webp
+│   └── skalar.webp
+│
 ├── js/
 │   └── script.js
-└── images/
+│
+├── node_modules/
+│
+├── database.db
+├── index.html
+├── package.json
+├── package-lock.json
+├── README.md
+└── server.js
 ```
 
+---
 
-## Główne komponenty
+## 🔌 API
 
-* **Nawigacja (nav)** – menu one-page + hamburger
-* **Hero** – sekcja powitalna
-* **Oferta** – produkty w układzie grid
-* **Dlaczego my** – sekcja informacyjna
-* **Opinie** – slider użytkowników
-* **Kontakt** – formularz
-* **Koszyk** – panel boczny z logiką JS
+### Pobieranie produktów
 
+```http
+GET /api/fish
+```
 
-## Przygotowanie pod backend
+### Przykładowa odpowiedź
 
-Projekt został zaprojektowany tak, aby możliwa była jego dalsza rozbudowa:
+```json
+[
+  {
+    "id": 1,
+    "name": "Gupik",
+    "description": "Piękna rybka ławicowa",
+    "price": 15,
+    "image": "gupik.webp"
+  }
+]
+```
 
-* koszyk wykorzystuje localStorage jako symulację bazy danych,
-* struktura produktów może zostać zastąpiona danymi z API,
-* formularz kontaktowy może zostać podłączony do backendu (np. fetch),
-* logika zakupu może zostać rozszerzona o system płatności.
+---
 
+## 🗄️ Baza danych
 
-## Analiza UX
+Projekt wykorzystuje bazę danych **SQLite**.
 
-### Problem użytkownika
+### Tabela `fish`
 
-Użytkownik chce w prosty sposób znaleźć i kupić ryby akwariowe online.
+| Kolumna     | Typ     |
+| ----------- | ------- |
+| id          | INTEGER |
+| name        | TEXT    |
+| description | TEXT    |
+| price       | INTEGER |
+| image       | TEXT    |
 
-### Grupa docelowa
+Po uruchomieniu serwera automatycznie dodawane jest minimum 10 przykładowych produktów.
 
-* osoby posiadające akwaria,
-* początkujący i zaawansowani akwaryści,
-* klienci sklepów zoologicznych.
+---
 
-### Struktura strony
+## 🚀 Uruchomienie projektu
 
-Zastosowano układ one-page, który pozwala szybko przejść do interesujących sekcji:
+### 1. Instalacja zależności
 
-* oferta produktów,
-* opinie,
-* kontakt.
+```bash
+npm install
+```
 
-Minimalizuje to liczbę kliknięć i upraszcza nawigację.
+### 2. Uruchomienie serwera
 
-### Kolorystyka i design
+```bash
+node server.js
+```
 
-* dominują kolory niebieskie (skojarzenie z wodą),
-* jasne tło poprawia czytelność,
-* karty produktów zwiększają przejrzystość oferty.
+### 3. Otworzenie aplikacji
 
+```text
+http://localhost:3000
+```
 
-## Uruchomienie projektu
+---
 
-1. Pobierz pliki projektu
-2. Otwórz `index.html` w za pomocą Live Server
+## 🧠 Analiza UX
 
+### 🔎 Problem użytkownika
 
-## Wydajność
+Użytkownik potrzebuje szybkiego i intuicyjnego sposobu przeglądania oraz wyboru ryb akwariowych online.
 
-Projekt został zoptymalizowany pod kątem:
+### 👥 Grupa docelowa
 
-* szybkości ładowania,
-* dostępności (WCAG – podstawowe wymagania),
-* SEO (meta tagi, alt, semantyka HTML).
+* początkujący akwaryści,
+* hobbyści akwarystyki,
+* klienci sklepów zoologicznych online.
 
-## Autor
+### 🧭 Struktura strony
 
-Projekt wykonany przez: Jakub Hetman 160076
+Zastosowano układ **One Page**, który umożliwia szybki dostęp do wszystkich sekcji:
 
-## Uwagi
+* Oferta
+* Zalety sklepu
+* Opinie klientów
+* Kontakt
+
+Takie rozwiązanie ogranicza liczbę kliknięć i poprawia doświadczenie użytkownika.
+
+### 🎨 Interfejs użytkownika
+
+* dominacja kolorystyki niebieskiej,
+* jasne i czytelne tło,
+* karty produktów w układzie Grid,
+* intuicyjny koszyk zakupowy.
+
+---
+
+## 🔧 Możliwości rozwoju
+
+Projekt został przygotowany pod dalszą rozbudowę:
+
+### Backend
+
+* dodawanie produktów,
+* edycja produktów,
+* usuwanie produktów,
+* system użytkowników,
+* autoryzacja i logowanie.
+
+### Frontend
+
+* obsługa logowania,
+* panel użytkownika,
+* integracja z systemami płatności.
+
+### Baza danych
+
+Możliwa migracja z SQLite do:
+
+* PostgreSQL,
+* MySQL.
+
+---
+
+## 📊 Wydajność i dostępność
+
+Projekt spełnia podstawowe wymagania dotyczące wydajności i dostępności:
+
+* Responsywny design (RWD)
+* Optymalizacja obrazów (`.webp`)
+* Lazy Loading obrazów
+* Podstawowe wymagania WCAG:
+
+  * teksty alternatywne (`alt`),
+  * odpowiedni kontrast,
+  * obsługa klawiatury.
+
+---
+
+## 👨‍💻 Autor
+
+**Jakub Hetman**
+Nr albumu: **160076**
+
+---
+
+## ⚠️ Uwagi
 
 Projekt ma charakter edukacyjny i nie obsługuje rzeczywistych płatności.
